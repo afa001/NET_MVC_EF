@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bdAspNetModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Banco">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Pais" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Ciudad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Direccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="personaId" Type="Int32" />
+    <NavigationProperty Name="Persona" Relationship="Self.FK_Banco_Persona_personaId" FromRole="Banco" ToRole="Persona" />
+  </EntityType>
+  <EntityType Name="Persona">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Apellidos" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Edad" Type="Int32" Nullable="false" />
+    <Property Name="CorreoElectronico" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Sexo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FechaNacimiento" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="Banco" Relationship="Self.FK_Banco_Persona_personaId" FromRole="Persona" ToRole="Banco" />
+  </EntityType>
+  <Association Name="FK_Banco_Persona_personaId">
+    <End Role="Persona" Type="Self.Persona" Multiplicity="0..1" />
+    <End Role="Banco" Type="Self.Banco" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Banco">
+        <PropertyRef Name="personaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="bdAspNetEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Banco" EntityType="Self.Banco" />
+    <EntitySet Name="Persona" EntityType="Self.Persona" />
+    <AssociationSet Name="FK_Banco_Persona_personaId" Association="Self.FK_Banco_Persona_personaId">
+      <End Role="Persona" EntitySet="Persona" />
+      <End Role="Banco" EntitySet="Banco" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
