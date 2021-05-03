@@ -1,0 +1,46 @@
+﻿@model WebAplicacion.Models.Usuarios
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+<h3>Estas seguro que quieres eliminar el usuario?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UsuID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsuID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UsuNombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsuNombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UsuPass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsuPass)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Aceptar" class="btn btn-danger" /> 
+            @Html.ActionLink("Atras", "Index")
+        </div>
+    }
+</div>

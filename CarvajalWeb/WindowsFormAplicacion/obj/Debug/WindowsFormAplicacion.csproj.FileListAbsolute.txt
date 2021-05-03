@@ -1,0 +1,15 @@
+C:\Users\ander\source\repos\CarvajalWeb\WindowsFormAplicacion\obj\Debug\WindowsFormAplicacion.csprojAssemblyReference.cache
+C:\Users\ander\source\repos\CarvajalWeb\WindowsFormAplicacion\obj\Debug\WindowsFormAplicacion.FrmProductos.resources
+C:\Users\ander\source\repos\CarvajalWeb\WindowsFormAplicacion\obj\Debug\WindowsFormAplicacion.Properties.Resources.resources
+C:\Users\ander\source\repos\CarvajalWeb\WindowsFormAplicacion\obj\Debug\WindowsFormAplicacion.csproj.GenerateResource.cache
+C:\Users\ander\source\repos\CarvajalWeb\WindowsFormAplicacion\obj\Debug\WindowsFormAplicacion.csproj.CoreCompileInputs.cache
+C:\Users\ander\source\repos\CarvajalWeb\WindowsFormAplicacion\bin\Debug\WindowsFormAplicacion.exe.config
+C:\Users\ander\source\repos\CarvajalWeb\WindowsFormAplicacion\bin\Debug\WindowsFormAplicacion.exe
+C:\Users\ander\source\repos\CarvajalWeb\WindowsFormAplicacion\bin\Debug\WindowsFormAplicacion.pdb
+C:\Users\ander\source\repos\CarvajalWeb\WindowsFormAplicacion\bin\Debug\Newtonsoft.Json.dll
+C:\Users\ander\source\repos\CarvajalWeb\WindowsFormAplicacion\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\ander\source\repos\CarvajalWeb\WindowsFormAplicacion\bin\Debug\Newtonsoft.Json.xml
+C:\Users\ander\source\repos\CarvajalWeb\WindowsFormAplicacion\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\ander\source\repos\CarvajalWeb\WindowsFormAplicacion\obj\Debug\WindowsFormAplicacion.csproj.CopyComplete
+C:\Users\ander\source\repos\CarvajalWeb\WindowsFormAplicacion\obj\Debug\WindowsFormAplicacion.exe
+C:\Users\ander\source\repos\CarvajalWeb\WindowsFormAplicacion\obj\Debug\WindowsFormAplicacion.pdb

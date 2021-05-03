@@ -1,0 +1,72 @@
+﻿@model IEnumerable<WebAplicacion.Models.Pedidos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<p>
+    @Html.ActionLink("Registrar pedido", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PedID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PedUsu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PedPro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PedVrUnit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PedCant)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PedSubtot)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PedIVA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PedTotal)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PedID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PedUsu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PedPro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PedVrUnit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PedCant)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PedSubtot)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PedIVA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PedTotal)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.PedID }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.PedID })
+        </td>
+    </tr>
+}
+
+</table>

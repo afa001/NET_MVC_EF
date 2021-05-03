@@ -1,0 +1,47 @@
+﻿@model WebAplicacion.Models.Productos
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+<h3>Estas seguro que quieres eliminar el producto?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProDesc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProValor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProValor)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Aceptar" class="btn btn-danger" />
+            @Html.ActionLink("Atras", "Index")
+        </div>
+    }
+</div>

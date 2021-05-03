@@ -1,0 +1,87 @@
+﻿@model WebAplicacion.Models.Pedidos
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h3>Estas seguro que quieres eliminar el pedido?</h3>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PedID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PedID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PedUsu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PedUsu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PedPro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PedPro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PedVrUnit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PedVrUnit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PedCant)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PedCant)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PedSubtot)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PedSubtot)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PedIVA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PedIVA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PedTotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PedTotal)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Aceptar" class="btn btn-danger" /> 
+            @Html.ActionLink("Atras", "Index")
+        </div>
+    }
+</div>

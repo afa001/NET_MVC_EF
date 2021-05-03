@@ -1,0 +1,41 @@
+﻿@model IEnumerable<WebAplicacion.Models.Productos>
+
+@{
+    ViewBag.Title = "Index";
+}
+<p>
+    @Html.ActionLink("Registrar producto", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProDesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProValor)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProDesc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProValor)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.ProID }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.ProID })
+        </td>
+    </tr>
+}
+
+</table>

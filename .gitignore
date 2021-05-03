@@ -1,0 +1,6 @@
+﻿################################################################################
+# Este archivo .gitignore ha sido creado automáticamente por Microsoft(R) Visual Studio.
+################################################################################
+
+/ASP_NET_EF/ASP_NET_EF/obj/Release
+/API_EF/API_EF/obj/Release
