@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbCarvajalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Pedidos">
+    <Key>
+      <PropertyRef Name="PedID" />
+    </Key>
+    <Property Name="PedID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PedUsu" Type="Int32" Nullable="false" />
+    <Property Name="PedPro" Type="Int32" Nullable="false" />
+    <Property Name="PedVrUnit" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="PedCant" Type="Double" Nullable="false" />
+    <Property Name="PedSubtot" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="PedIVA" Type="Double" Nullable="false" />
+    <Property Name="PedTotal" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="Productos" Relationship="Self.FK_Pedidos_Productos" FromRole="Pedidos" ToRole="Productos" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_Pedidos_Usuarios" FromRole="Pedidos" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="Productos">
+    <Key>
+      <PropertyRef Name="ProID" />
+    </Key>
+    <Property Name="ProID" Type="Int32" Nullable="false" />
+    <Property Name="ProDesc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProValor" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="Pedidos" Relationship="Self.FK_Pedidos_Productos" FromRole="Productos" ToRole="Pedidos" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="UsuID" />
+    </Key>
+    <Property Name="UsuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UsuNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UsuPass" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Pedidos" Relationship="Self.FK_Pedidos_Usuarios" FromRole="Usuarios" ToRole="Pedidos" />
+  </EntityType>
+  <Association Name="FK_Pedidos_Productos">
+    <End Role="Productos" Type="Self.Productos" Multiplicity="1" />
+    <End Role="Pedidos" Type="Self.Pedidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Productos">
+        <PropertyRef Name="ProID" />
+      </Principal>
+      <Dependent Role="Pedidos">
+        <PropertyRef Name="PedPro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pedidos_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="Pedidos" Type="Self.Pedidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="UsuID" />
+      </Principal>
+      <Dependent Role="Pedidos">
+        <PropertyRef Name="PedUsu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dbCarvajalEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Pedidos" EntityType="Self.Pedidos" />
+    <EntitySet Name="Productos" EntityType="Self.Productos" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+    <AssociationSet Name="FK_Pedidos_Productos" Association="Self.FK_Pedidos_Productos">
+      <End Role="Productos" EntitySet="Productos" />
+      <End Role="Pedidos" EntitySet="Pedidos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pedidos_Usuarios" Association="Self.FK_Pedidos_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Pedidos" EntitySet="Pedidos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
